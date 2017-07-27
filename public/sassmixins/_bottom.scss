@@ -1,0 +1,104 @@
+.bottom-menu {
+  background-color: #ffffff;
+  border-top: 1px solid #d4d4d4;
+  display: -webkit-box;
+  position: fixed;
+  bottom: -1px;
+  width: 10rem;
+  z-index: 30;
+
+  .item {
+    -webkit-box-flex: 1;
+    height: px2rem(110px);
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    &.active {
+      .inner {
+        .title {
+          color: #3399cc;
+        }
+      }
+
+      &.home {
+        .inner {
+          .menu-img {
+            background-image: url("../../img/menu_active_home.png");
+          }
+        }
+      }
+
+      &.food {
+        .inner {
+          .menu-img {
+            background-image: url("../../img/menu_active_food.png");
+          }
+        }
+      }
+
+      &.order {
+        .inner {
+          .menu-img {
+            background-image: url("../../img/menu_active_order.png");
+          }
+        }
+      }
+
+      &.mine {
+        .inner {
+          .menu-img {
+            background-image: url("../../img/menu_active_mine.png");
+          }
+        }
+      }
+    }
+
+    .inner {
+      .menu-img {
+        background-size: 100% 100%;
+        @include size(px2rem(50px), px2rem(45px));
+      }
+
+      .title {
+        @include font-dpr(10px);
+        margin-top: px2rem(10px);
+        text-align: center;
+        color: #666666;
+      }
+    }
+
+    &.home {
+      .inner {
+        .menu-img {
+          background-image: url("../../img/menu_home.png");
+        }
+      }
+    }
+
+    &.food {
+      .inner {
+        .menu-img {
+          background-image: url("../../img/menu_food.png");
+        }
+      }
+    }
+
+    &.order {
+      .inner {
+        .menu-img {
+          background-image: url("../../img/menu_order.png");
+        }
+      }
+    }
+
+    &.mine {
+      .inner {
+        .menu-img {
+          background-image: url("../../img/menu_mine.png");
+        }
+      }
+    }
+
+  }
+}

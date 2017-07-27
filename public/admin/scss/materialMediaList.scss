@@ -1,0 +1,55 @@
+@import "../../sassmixins/mixins";
+
+.media_list {
+  @include clearfix;
+
+  .image_item {
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 15px;
+    border: 1px solid #eee;
+
+    .img {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      width: 169px;
+      height: 169px;
+      cursor: pointer;
+    }
+
+    .name {
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 12px;
+      @include text-overflow(1);
+      width: 169px;
+      padding: 0 10px;
+      border-top: 1px solid #eee;
+    }
+
+    .bottom {
+      @include clearfix;
+      border-top: 1px solid #eee;
+
+      .item {
+        width: 49.9%;
+        float: left;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+        border-right: 1px solid #eee;
+
+        &:last-child {
+          border-right: 0;
+        }
+
+        &:hover {
+          background-color: rgba(#000, 0.1);
+        }
+      }
+    }
+  }
+}

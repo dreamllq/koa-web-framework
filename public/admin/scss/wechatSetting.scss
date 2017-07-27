@@ -1,0 +1,10 @@
+@import "../../sassmixins/mixins";
+
+.wechat_base_setting {
+  .sys_user_bar {
+    @include clearfix;
+    .user_bar_creat {
+      float: right;
+    }
+  }
+}

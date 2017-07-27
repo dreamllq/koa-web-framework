@@ -1,0 +1,8 @@
+@import "../../sassmixins/mixins";
+//@import "layout";
+//@import "sysRight";
+//@import "user";
+
+html, body, #root {
+  min-width: 1200px;
+}

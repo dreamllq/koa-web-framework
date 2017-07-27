@@ -1,0 +1,10 @@
+@import "../../sassmixins/mixins";
+
+.sys_right_container {
+  .sys_user_bar {
+    @include clearfix;
+    .user_bar_creat {
+      float: right;
+    }
+  }
+}

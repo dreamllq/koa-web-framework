@@ -1,0 +1,87 @@
+@import "../../sassmixins/mixins";
+
+.widget {
+  background-color: #fafafa;
+  width: 80px;
+  height: 80px;
+  position: relative;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  float: left;
+  @include box-sizing;
+  border: 1px solid;
+  margin: 9px;
+  padding: 10px;
+  text-align: center;
+
+}
+
+.container {
+  @include clearfix;
+
+  .left {
+    float: left;
+    width: 200px;
+    border: 1px solid;
+    @include clearfix;
+  }
+
+  .right {
+    float: left;
+
+    .frame_container {
+      position: relative;
+    }
+    .frame {
+      width: 400px;
+      border: 1px solid;
+      margin-left: 20px;
+    }
+
+    .widget_block {
+      height: 50px;
+      margin: 20px 0;
+      width: 100%;
+      background-color: #313131;
+    }
+
+    .widget_index_block {
+      height: 50px;
+      //margin: 10px 0;
+      width: 100%;
+      background-color: #eeeeee;
+      @include box-sizing;
+      padding: 0 20px;
+
+      &.index {
+        opacity: 0.3;
+      }
+
+      &.sort {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .frame_fixed {
+      display: none;
+
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .output {
+    float: left;
+    margin-left: 20px;
+    word-break: break-all;
+    width: 250px;
+  }
+}

@@ -1,0 +1,6 @@
+@mixin commonBg($url) {
+  background-image: $url;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}

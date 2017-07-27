@@ -1,0 +1,25 @@
+@import "../../sassmixins/mixins";
+
+
+
+.page_loading {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  stroke: $color_8;
+  fill: $color_8;
+  background-color: #fff;
+
+  svg {
+    width: px2rem(84px);
+    height: px2rem(84px);
+    display: block;
+    margin: 0 auto;
+  }
+}
