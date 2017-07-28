@@ -132,6 +132,31 @@ export default ({history, app}) => {
                         }, 'Editor')
                     }}/>
                 </Route>
+
+                <Route path='third'>
+                    <Route path='xcx_list' getComponent={(nextState, cb) => {
+                        require.ensure([], (require) => {
+                            registerModel(app, require('./models/thirdXcxList/xcxList'));
+                            registerModel(app, require('./models/thirdXcxList/uploadModal'));
+                            registerModel(app, require('./models/thirdXcxList/interfaceModal'));
+                            registerModel(app, require('./models/thirdXcxList/userModal'));
+                            registerModel(app, require('./models/thirdXcxList/submitAuditModal'));
+                            registerModel(app, require('./models/thirdXcxList/configModal'));
+                            cb(null, require('./routers/third/XcxList'))
+                        }, 'XcxList')
+                    }}/>
+                    <Route path='xcx_audit' getComponent={(nextState, cb) => {
+                        require.ensure([], (require) => {
+                            registerModel(app, require('./models/thirdXcxAudit/xcxAudit'));
+                            cb(null, require('./routers/third/XcxAudit'))
+                        }, 'XcxAudit')
+                    }}/>
+                    <Route path='xcx_setting' getComponent={(nextState, cb) => {
+                        require.ensure([], (require) => {
+                            cb(null, require('./routers/third/XcxSetting'))
+                        }, 'XcxSetting')
+                    }}/>
+                </Route>
             </Route>
         </Router>
     );

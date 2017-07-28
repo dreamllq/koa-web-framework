@@ -15,15 +15,16 @@ const router = new Router();
 const h5RouterIndex = require('../h5_router');
 const adminRouterIndex = require('../admin_router');
 const funcRouterIndex = require('../func_router');
+const notifyRouterIndex = require('../notify_router');
 const errcode = require('../config/errcode');
 const compress = require('koa-compress');
 
 app.keys = ['some secret hurr'];
 config.session.store = new Store();
 app.use(compress());
-app.use(require('koa-static')(__dirname + '/public'));
+app.use(require('koa-static')(__dirname + '/../public'));
 
-app.use(views(__dirname + '/views', {
+app.use(views(__dirname + '/../views', {
     extension: 'ejs'
 }));
 app.use(bodyParser());
@@ -57,7 +58,19 @@ app.use(async (ctx, next) => {
         await next();
     } catch (e) {
         console.error(e);
-        ctx.error(errcode.COMMON_ERROR);
+
+        let errmsg = e.message;
+        let arr = errmsg.split('::');
+        if (arr[0] == 'errformat') {
+            let errcode = arr[2];
+            let errmsg = arr[3];
+            ctx.error({
+                errno: errcode,
+                errdesc: errmsg
+            });
+        } else {
+            ctx.error(errcode.COMMON_ERROR);
+        }
     }
 });
 
@@ -66,6 +79,7 @@ router.get('', (ctx) => ctx.redirect('/admin'));
 router.use('', h5RouterIndex.routes(), h5RouterIndex.allowedMethods());
 router.use('', funcRouterIndex.routes(), funcRouterIndex.allowedMethods());
 router.use('', adminRouterIndex.routes(), adminRouterIndex.allowedMethods());
+router.use('', notifyRouterIndex.routes(), notifyRouterIndex.allowedMethods());
 
 app.use(router.routes());
 app.use(router.allowedMethods());

@@ -1,7 +1,7 @@
 /**
  * Created by lvliqi on 2017/7/19.
  */
-const Util = require('../util');
+const Util = require('../../util/socket.io');
 const co = require('co');
 
 module.exports = (io) => {
@@ -16,13 +16,13 @@ module.exports = (io) => {
 
         socket.on('joinroom', ({roomId}) => {
             // console.log(socket.request.headers.cookie);
-            let cookie = Util.formatCookie(socket.request.headers.cookie);
+            let cookie = Util.getCookie(socket);
             let {uid, token} = cookie;
             socket.emit('msg', {type: 1, data: '加入房间失败'});
         });
 
         socket.on('chatmsg', ({msg, roomId}) => {
-            let cookie = Util.formatCookie(socket.request.headers.cookie);
+            let cookie = Util.getCookie(socket);
             let {uid, token} = cookie;
             socket.emit('msg', {type: 1, data: '消息发送失败'});
         });

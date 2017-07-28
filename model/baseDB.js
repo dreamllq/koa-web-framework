@@ -50,7 +50,7 @@ class baseDB {
         return this.getOne({where: `id=${id}`}, {t, query});
     }
 
-    async getByPage({page = 1, pageSize = 10, where = '', filed = [], order = ['id', 'asc']}, {t = false, query} = {}) {
+    async getByPage({page = 1, pageSize = 10, where = '', filed = [], order = ['id', 'desc']}, {t = false, query} = {}) {
         let list = await this.getList({where, order, filed, limit: [(page - 1) * pageSize, pageSize]}, {t, query});
         let allData = await this.getAllList({where}, {t, query});
         return {

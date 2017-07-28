@@ -7,6 +7,7 @@ const sysRouter = require('./sys');
 const loginRouter = require('./login');
 const wechatRouter = require('./wechat');
 const cmsRouter = require('./cms');
+const thirdRouter = require('./third');
 
 router.use('/admin', async (ctx, next) => {
     if (['/admin/login', '/admin/login/check', '/admin/login/login'].indexOf(ctx.request.url) > -1) {
@@ -30,6 +31,7 @@ router.use('/admin', sysRouter.routes(), sysRouter.allowedMethods());
 router.use('/admin', wechatRouter.routes(), wechatRouter.allowedMethods());
 router.use('/admin', cmsRouter.routes(), cmsRouter.allowedMethods());
 router.use('/admin', loginRouter.routes(), loginRouter.allowedMethods());
+router.use('/admin', thirdRouter.routes(), thirdRouter.allowedMethods());
 router.get('/admin/active', ctx => ctx.render('admin/index'));
 
 module.exports = router;

@@ -8,7 +8,7 @@ module.exports = {
         host: '127.0.0.1',
         user: 'root',
         password: 'Lvliqi@#1314',
-        database: 'koa',
+        database: 'kwf',
         multipleStatements: true
     },
     redis: {
@@ -24,5 +24,17 @@ module.exports = {
         overwrite: true, /** (boolean) can overwrite or not (default true) */
         httpOnly: true, /** (boolean) httpOnly or not (default true) */
         signed: true, /** (boolean) signed or not (default true) */
+    },
+    server_host: "http://localhost:3000",
+    socket_host: "http://localhost:2999",
+    third: {
+        appid: 'wx93d83a69fd997dec',
+        appsecret: '78fece464102a714e37be2fe2915fed6',
+        api: {
+            host: 'https://api.weixin.qq.com/cgi-bin',
+            xcx_host: 'https://api.weixin.qq.com/wxa'
+        },
+        EncryptKey: 'Asdfghjklqwertyuiop1234dfgh456cvbn78ujki90o',
+        token: 'Zxcvbnm'
     }
 };
