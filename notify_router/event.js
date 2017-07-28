@@ -34,7 +34,6 @@ router.post('/event', async ctx => {
         //TODO 授权更新通知
         await UpdateAuthorized(data);
     }
-
     ctx.body = 'success';
 });
 
