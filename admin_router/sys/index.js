@@ -9,6 +9,7 @@ const dashboardRouter = require('./dashboard');
 const platformRouter = require('./platform');
 const rightRouter = require('./right');
 const commonUserRouter = require('./commonUser');
+const fileRouter = require('./file');
 
 router.get('/sys', ctx => ctx.redirect('/admin/sys/dashboard'));
 router.use('/sys', dashboardRouter.routes(), dashboardRouter.allowedMethods());
@@ -17,5 +18,6 @@ router.use('/sys', menuRouter.routes(), menuRouter.allowedMethods());
 router.use('/sys', platformRouter.routes(), platformRouter.allowedMethods());
 router.use('/sys', rightRouter.routes(), rightRouter.allowedMethods());
 router.use('/sys', commonUserRouter.routes(), commonUserRouter.allowedMethods());
+router.use('/sys', fileRouter.routes(), fileRouter.allowedMethods());
 
 module.exports = router;

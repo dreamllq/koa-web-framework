@@ -13,7 +13,7 @@ webpackJsonp([19],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _dva = __webpack_require__(88);
+	var _dva = __webpack_require__(90);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	

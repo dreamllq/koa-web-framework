@@ -62,11 +62,9 @@ app.use(async (ctx, next) => {
         let errmsg = e.message;
         let arr = errmsg.split('::');
         if (arr[0] == 'errformat') {
-            let errcode = arr[2];
-            let errmsg = arr[3];
             ctx.error({
-                errno: errcode,
-                errdesc: errmsg
+                errno: arr[2],
+                errdesc: arr[3]
             });
         } else {
             ctx.error(errcode.COMMON_ERROR);

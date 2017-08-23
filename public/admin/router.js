@@ -5,6 +5,7 @@ import React from 'react';
 import {Router, Route, IndexRoute, IndexRedirect} from 'dva/router';
 
 const cached = {};
+
 function registerModel(app, model) {
     if (!cached[model.namespace]) {
         app.model(model);
@@ -53,6 +54,14 @@ export default ({history, app}) => {
                             registerModel(app, require('./models/sysCommonUser/commonUser'));
                             cb(null, require('./routers/sys/SysCommonUser'))
                         }, 'SysCommonUser')
+                    }}/>
+                    <Route path='file' getComponent={(nextState, cb) => {
+                        require.ensure([], (require) => {
+                            registerModel(app, require('./models/sysFile/sysFile'));
+                            registerModel(app, require('./models/sysFile/sysFileAdd'));
+                            registerModel(app, require('./models/sysFile/sysFileEdit'));
+                            cb(null, require('./routers/sys/SysFile'))
+                        }, 'SysFile')
                     }}/>
                 </Route>
 

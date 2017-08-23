@@ -30,4 +30,11 @@ export default {
     commonUserDel: (data) => request('/admin/sys/commonUser/del', data, 'POST'),
     commonUserBan: (data) => request('/admin/sys/commonUser/ban', data, 'POST'),
     commonUserUnBan: (data) => request('/admin/sys/commonUser/unban', data, 'POST'),
+
+    fileAdd: (data) => request('/admin/sys/file/add', data, 'POST'),
+    fileAll: (data) => request('/admin/sys/file/all', data, 'POST'),
+    fileDel: (data) => request('/admin/sys/file/del', data, 'POST'),
+    fileRead: (data) => request('/admin/sys/file/read', data, 'POST'),
+    fileWrite: (data) => request('/admin/sys/file/write', data, 'POST'),
+    fileDir: (data) => request('/admin/sys/file/dir', data, 'POST'),
 }

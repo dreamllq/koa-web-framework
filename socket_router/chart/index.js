@@ -26,5 +26,9 @@ module.exports = (io) => {
             let {uid, token} = cookie;
             socket.emit('msg', {type: 1, data: '消息发送失败'});
         });
+
+        socket.on('history', ({from, to, count}) => {
+
+        })
     });
 };

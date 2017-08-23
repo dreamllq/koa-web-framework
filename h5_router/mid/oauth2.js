@@ -18,6 +18,12 @@ const userFunc = require('../../func/h5/user');
  * uid 用户信息
  */
 module.exports = async (ctx, next) => {
+    let ua = ctx.req.headers['user-agent'];
+    if (!/micromessenger/i.test(ua)) {
+        await next();
+        return;
+    }
+
     let token = ctx.cookies.get('token');
     let uid = ctx.cookies.get('uid');
     let {code, state, cb_url} = ctx.query;
